@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="added README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" afterDir="false" />
+    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="added README.md,Hero and Squad.java created">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -33,6 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2PtNzFlOTASsTKxDp8fTYGWB4t1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,9 +46,15 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "C:/Users/User/IdeaProjects/untitled23/src/main/java/ke/co/pookie/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/User/IdeaProjects/untitled23/src/main/java/ke/co/pookie/Main.java",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\untitled23" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,11 +71,19 @@
       <option name="project" value="LOCAL" />
       <updated>1684278077890</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added README.md,Hero and Squad.java created">
+      <created>1684281446826</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684281446826</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="added README.md" />
+    <MESSAGE value="added README.md,Hero and Squad.java created" />
+    <option name="LAST_COMMIT_MESSAGE" value="added README.md,Hero and Squad.java created" />
   </component>
 </project>
