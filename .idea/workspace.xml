@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="added README.md,Hero and Squad.java created">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" afterDir="false" />
+    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="added a getter &amp; setter to the  Squad object">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,12 +78,43 @@
       <option name="project" value="LOCAL" />
       <updated>1684281446826</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create a hero object, added getter and setters">
+      <created>1684282396538</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684282396539</updated>
+    </task>
+    <task id="LOCAL-00004" summary="create a hero object, added getter and setters">
+      <created>1684282479193</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684282479193</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create a Squad object">
+      <created>1684282681991</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684282681991</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added a getter &amp; setter to the  Squad object">
+      <created>1684282729841</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684282729841</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added README.md" />
     <MESSAGE value="added README.md,Hero and Squad.java created" />
-    <option name="LAST_COMMIT_MESSAGE" value="added README.md,Hero and Squad.java created" />
+    <MESSAGE value="create a hero object, added getter and setters" />
+    <MESSAGE value="create a Squad object" />
+    <MESSAGE value="added a getter &amp; setter to the  Squad object" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a getter &amp; setter to the  Squad object" />
   </component>
 </project>
