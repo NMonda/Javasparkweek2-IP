@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="added a data access object(dao package) contains logic, updated the main.java content">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/HeroDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/SquadDao.java" afterDir="false" />
+    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="modified dependencies, HeroDao and SquadDao modified">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/config/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2PtNzFlOTASsTKxDp8fTYGWB4t1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -114,7 +115,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684286204462</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added a data access object(dao package),creating 2 classes inside the dao">
+      <created>1684286864464</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684286864464</updated>
+    </task>
+    <task id="LOCAL-00009" summary="modified dependencies, HeroDao and SquadDao modified">
+      <created>1684290886521</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684290886525</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -124,6 +139,8 @@
     <MESSAGE value="create a Squad object" />
     <MESSAGE value="added a getter &amp; setter to the  Squad object" />
     <MESSAGE value="added a data access object(dao package) contains logic, updated the main.java content" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a data access object(dao package) contains logic, updated the main.java content" />
+    <MESSAGE value="added a data access object(dao package),creating 2 classes inside the dao" />
+    <MESSAGE value="modified dependencies, HeroDao and SquadDao modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified dependencies, HeroDao and SquadDao modified" />
   </component>
 </project>
