@@ -1,20 +1,20 @@
 package ke.co.pookie;
-
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Squad {
     private int id;
     private String squadName;
     private String cause;
     private int maxSize;
-    private LocalDateTime createdAt;
 
-    public Squad(int id, String squadName, String cause, int maxSize, LocalDateTime createdAt) {
+
+    public Squad(int id, String squadName, String cause, int maxSize) {
         this.id = id;
         this.squadName = squadName;
         this.cause = cause;
         this.maxSize = maxSize;
-        this.createdAt = createdAt;
+
 }
 
     public int getId() {
@@ -49,10 +49,4 @@ public class Squad {
         this.maxSize = maxSize;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }

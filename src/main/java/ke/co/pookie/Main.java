@@ -1,107 +1,127 @@
 package ke.co.pookie;
 
+import ke.co.pookie.dao.HeroDao;
+import ke.co.pookie.dao.SquadDao;
 import spark.ModelAndView;
+import org.sql2o.Connection;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.List;
 public class Main {
     public static void main(String... args) {
+
         staticFileLocation("/public");
+        HandlebarsTemplateEngine views = new HandlebarsTemplateEngine();
 
-        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-        get("/new/squad", (req, res) -> {
-            return new ModelAndView(new HashMap<>(), "create_squad.hbs");
-        }, new HandlebarsTemplateEngine());
+        //LANDING PAGE
+        get("/", (req,res) -> new ModelAndView(new HashMap<>(),"landing-page.hbs"), views );
 
-        // Get all heroes
-        get("/heroes", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("heroes", heroDao.getAllHeroes(sql));
+        //HOME PAGE
+        get("/home", (req,res) -> {
 
-            return new ModelAndView(model, "heroes.hbs");
-        }, new HandlebarsTemplateEngine());
+            Map<String, Object> combinedList = new HashMap<>();
+            combinedList.put("heroObject", HeroDao.getAllHeroes());
+            combinedList.put("squadObject", SquadDao.getAllSquads());
+            return new ModelAndView(combinedList, "home.hbs");
 
-        // Get all squads
-        get("/squads", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("squads", squadsDao.getAllSquads(sql));
-            return new ModelAndView(model, "squads.hbs");
-        }, new HandlebarsTemplateEngine());
+        },views);
 
-        // Get a hero by id
-        get("/heroes/:id", (req, res) -> {
-            return heroDao.getHero(sql, Integer.parseInt(req.params(":id")));
+        //HERO ADDING FORM PAGE
+        get("/add-hero", (req,res) -> new ModelAndView(new HashMap<>(),"add-hero.hbs"), views );
+
+        //SENDING HERO DETAILS TO DATABASE
+        post("/add-hero", (req,res)-> {
+
+            String hero = req.queryParams("hero");
+            Integer age = Integer.parseInt(req.queryParams("age"));
+            String power = req.queryParams("power");
+            Integer power_score = Integer.parseInt(req.queryParams("power_score"));
+            String weakness = req.queryParams("weakness");
+            Integer weakness_score = Integer.parseInt(req.queryParams("weakness_score"));
+            String squad = "";
+
+            Hero newHero = new Hero(hero.toUpperCase(),age,power,power_score,weakness,weakness_score,squad);
+            HeroDao.addHero(newHero);
+            res.redirect("/home");
+            return null ;
         });
 
-        // Get a squad by id
-        get("/squads/:id", (req, res) -> {
-            return squadsDao.getSquad(sql, Integer.parseInt(req.params(":id")));
+        //SQUAD ADDING FORM PAGE
+        get("/add-squad", (req,res) -> new ModelAndView(new HashMap<>(),"add-squad.hbs"), views );
+
+        //SENDING HERO DETAILS TO DATABASE
+        post("/add-squad", (req,res)-> {
+
+            String squad = req.queryParams("squad");
+            String cause = req.queryParams("cause");
+            Integer size = Integer.parseInt(req.queryParams("size"));
+            Squad newSquad = new Squad(squad,cause,size);
+            SquadDao.addSquad(newSquad);
+            res.redirect("/home");
+            return null;
+
         });
 
-        // Get a hero by squad id
-        get("/squads/:id/heroes", (req, res) -> {
-            return heroDao.getHeroBySquadId(sql, Integer.parseInt(req.params(":id")));
-        });
+        //HERO TO SQUAD ASSIGNMENT FORM
+        get("/assign-squad/:squad", (req,res) -> {
 
-        // Create a hero
-        post("/heroes", (req, res) -> {
-            Hero hero = new Hero(0, req.queryParams("name"), req.queryParams("power"), req.queryParams("weakness"), Integer.parseInt(req.queryParams("squadId")));
-            heroDao.createHero(sql, hero);
-            res.redirect("/heroes");
-            return hero;
-        });
+            String squad =  req.params("squad");
+            Map<String, Object> combinedList = new HashMap<>();
 
-        // Create a squad
-        post("/squads", (req, res) -> {
-            Squad squad = new Squad(0, req.queryParams("name"), req.queryParams("cause"), Integer.parseInt(req.queryParams("maxsize")), LocalDateTime.now());
-            squadsDao.createSquad(sql, squad);
-            res.redirect("/squads");
-            return squad;
-        });
+            if(HeroDao.heroCount(squad) < SquadDao.maxSize(squad)) {
+                combinedList.put("querySquad", squad);
+                combinedList.put("heroObject", HeroDao.membership(squad));
+            } else res.redirect("/full-squad");
 
-        // Update a hero
-        post("/heroes/:id", (req, res) -> {
-            Hero hero = new Hero(Integer.parseInt(req.params(":id")), req.queryParams("name"), req.queryParams("power"), req.queryParams("weakness"), Integer.parseInt(req.queryParams("squadId")));
-            heroDao.updateHero(sql, hero);
-            return hero;
-        });
+            return new ModelAndView(combinedList, "assign-squad.hbs");
+        },views);
 
-        // Update a squad
-        post("/squads/:id", (req, res) -> {
-            Squad squad = new Squad(Integer.parseInt(req.params(":id")), req.queryParams("name"), req.queryParams("cause"), Integer.parseInt(req.queryParams("maxsize")), LocalDateTime.now());
-            squadsDao.updateSquad(sql, squad);
-            return squad;
-        });
+        //ASSIGNING A HER0 TO A SQUAD
+        post("/assign-squad/:squad", (req,res) -> {
 
-        // Delete a hero
-        post("/heroes/:id/delete", (req, res) -> {
-            heroDao.deleteHero(sql, Integer.parseInt(req.params(":id")));
-            return "Hero deleted";
-        });
+            String hero = req.queryParams("hero");
+            String squad = req.queryParams("squad");
+            HeroDao.updateMembership(hero, squad);
+            res.redirect("/home");
+            return null;
 
-        // Delete a squad
-        post("/squads/:id/delete", (req, res) -> {
-            squadsDao.deleteSquad(sql, Integer.parseInt(req.params(":id")));
-            return "Squad deleted";
-        });
+        },views);
 
-        // Delete a hero by id
-        delete("/heroes/:id/delete", (req, res) -> {
-            heroDao.deleteHero(sql, Integer.parseInt(req.params(":id")));
-            res.redirect("/heroes");
-            return "Hero deleted";
-        });
+        //DELETING A HERO FROM THE PAGE
+        get("/delete-hero/:hero", (req,res)-> {
 
-        // Delete a squad by id
-        delete("/squads/:id/delete", (req, res) -> {
-            squadsDao.deleteSquad(sql, Integer.parseInt(req.params(":id")));
-            res.redirect("/squads");
-            return "Squad deleted";
-        });
+            String name = req.params(":hero");
+            HeroDao.deleteHero(name);
+            res.redirect("/home");
+            return null;
+
+        },views);
+
+        //DELETING A SQUAD FROM THE PAGE
+        get("/delete-squad/:squad", (req,res)-> {
+
+            String name = req.params(":squad");
+            SquadDao.deleteSquad(name);
+            res.redirect("/home");
+            return null;
+
+        },views);
+
+        //CREATES A PAGE WITH SEARCHABLE TABLE LIST OF ALL HEROES AND SQUADS
+        get("/all", (req,res) -> {
+
+            Map<String, Object> combinedList = new HashMap<>();
+            combinedList.put("heroObject", HeroDao.getAllHeroes());
+            combinedList.put("squadObject", SquadDao.getAllSquads());
+            return new ModelAndView(combinedList, "all.hbs");
+
+        },views);
+
+        //FULL SQUAD ERROR PAGE
+        get("/full-squad", (req,res) -> new ModelAndView(new HashMap<>(),"full-squad.hbs"), views );
 
     }
+}
 
-    }

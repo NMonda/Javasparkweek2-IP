@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="modified dependencies, HeroDao and SquadDao modified">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/config/Database.java" afterDir="false" />
+    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="fixing HeroDao.java bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -48,6 +49,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "onboarding.tips.debug.path": "C:/Users/User/IdeaProjects/untitled23/src/main/java/ke/co/pookie/Main.java",
     "settings.editor.selected.configurable": "editor.preferences.import"
   }
@@ -55,6 +58,12 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\IdeaProjects\untitled23" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ke.co.pookie" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -129,7 +138,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684290886525</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modified dependencies, created database and linked it to java">
+      <created>1684475501644</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684475501644</updated>
+    </task>
+    <task id="LOCAL-00011" summary="modified HeroDao,Database and Main.java file">
+      <created>1685047169201</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685047169201</updated>
+    </task>
+    <task id="LOCAL-00012" summary="modified HeroDao file">
+      <created>1685047302229</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685047302229</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixing HeroDao.java bugs">
+      <created>1685050817196</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685050817212</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -141,6 +178,10 @@
     <MESSAGE value="added a data access object(dao package) contains logic, updated the main.java content" />
     <MESSAGE value="added a data access object(dao package),creating 2 classes inside the dao" />
     <MESSAGE value="modified dependencies, HeroDao and SquadDao modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified dependencies, HeroDao and SquadDao modified" />
+    <MESSAGE value="modified dependencies, created database and linked it to java" />
+    <MESSAGE value="modified HeroDao,Database and Main.java file" />
+    <MESSAGE value="modified HeroDao file" />
+    <MESSAGE value="fixing HeroDao.java bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing HeroDao.java bugs" />
   </component>
 </project>
