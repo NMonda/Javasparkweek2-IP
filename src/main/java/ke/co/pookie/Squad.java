@@ -1,6 +1,4 @@
 package ke.co.pookie;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Squad {
     private int id;
@@ -15,7 +13,7 @@ public class Squad {
         this.cause = cause;
         this.maxSize = maxSize;
 
-}
+    }
 
     public int getId() {
         return id;
@@ -50,3 +48,4 @@ public class Squad {
     }
 
 
+}

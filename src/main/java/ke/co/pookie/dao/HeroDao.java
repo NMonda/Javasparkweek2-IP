@@ -3,7 +3,6 @@ package ke.co.pookie.dao;
 import ke.co.pookie.Hero;
 import ke.co.pookie.config.Database;
 import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
 import java.util.List;
 
@@ -46,9 +45,11 @@ public class HeroDao {
             } catch (Exception error) { System.out.println(error.getMessage());}
         }
         public Hero getHero( int id) {
-            try {String heroUpdate= "SELECT * FROM heroes WHERE id = :id";
+            try(Connection db = Database.getConnect().open()){
+                    String heroUpdate= "SELECT * FROM heroes WHERE id = :id";
                 db.createQuery(heroUpdate).addParameter("id").executeUpdate();
             } catch (Exception error) { System.out.println(error.getMessage());}
+            return null;
         }
 
     //UPDATES THE HERO DETAILS TO INCLUDE THE SQUAD ID
