@@ -26,7 +26,7 @@ public class HeroDao {
     }
     public static void add(Hero newHero){
         try(Connection db = Database.getConnect().open()){
-            String heroAdd ="INSERT INTO heroes (heroName, power, weakness, squadId) VALUES (:name, :power, :weakness, :squadId)"
+            String heroAdd ="INSERT INTO heroes (heroName, power, weakness, squadId) VALUES (:name, :power, :weakness, :squadId)";
             db.createQuery(heroAdd).bind(newHero).executeUpdate();
         } catch (Exception error) {
             System.out.println(error.getMessage());}
