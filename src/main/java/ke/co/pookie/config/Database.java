@@ -3,11 +3,11 @@ package ke.co.pookie.config;
 import org.sql2o.Sql2o;
 
 public class Database {
-    private final static String DB_USER = System.getenv("DB_USER");
-    private final static String DB_PASS = System.getenv("DB_PASS");
-    private final static String DB_URL = System.getenv("DB_URL");
-    private static final Sql2o sql2o = new Sql2o(DB_URL, DB_USER, DB_PASS);
+    private static final Sql2o connection = new Sql2o (
 
-    public static Sql2o getDatabase(){
-        return Database.sql2o;
+            "jdbc:postgresql://localhost:5432/hero_squad_db",
+            "postgres",
+            "01234"
+    );
+    public static Sql2o getConnect() { return connection; }
 }
