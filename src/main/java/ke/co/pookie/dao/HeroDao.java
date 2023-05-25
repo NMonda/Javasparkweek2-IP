@@ -32,29 +32,31 @@ public class HeroDao {
             System.out.println(error.getMessage());}
     }
 
-        public void deleteHero(Connection sql, int id) {
-            sql.createQuery("DELETE FROM heroes WHERE id = :id")
-                    .addParameter("id", id)
-                    .executeUpdate();
+        public void deleteHero(String name) {
+            try(Connection db = Database.getConnect().open()){
+                String deletedHero = "DELETE FROM heroes WHERE id = : id";
+                db.createQuery(deletedHero).addParameter("hero", name).executeUpdate();
+            } catch (Exception error) { System.out.println(error.getMessage());}
         }
 
-        public void updateHero(Connection sql, Hero hero) {
-            sql.createQuery("UPDATE heroes SET heroName = :name, power = :power, weakness = :weakness, squadId = :squadId WHERE id = :id")
-                    .bind(hero)
-                    .executeUpdate();
+        public void updateHero(String hero, String squad) {
+            try(Connection db = Database.getConnect().open()){
+                String heroUpdate = "UPDATE heroes SET heroName = :name, power = :power, weakness = :weakness, squadId = :squadId WHERE id = :id";
+                db.createQuery(heroUpdate).addParameter("hero", hero).addParameter("squad", squad).executeUpdate();
+            } catch (Exception error) { System.out.println(error.getMessage());}
         }
-        public Hero getHero(Connection sql, int id) {
-            try {
-                return sql.createQuery("SELECT * FROM heroes WHERE id = :id")
-                        .addParameter("id", id)
-                        .executeAndFetchFirst(Hero.class);
-            } catch (Exception e) {
-                throw new RuntimeException("Error Occured", e);
-            }
+        public Hero getHero( int id) {
+            try {String heroUpdate= "SELECT * FROM heroes WHERE id = :id";
+                db.createQuery(heroUpdate).addParameter("id").executeUpdate();
+            } catch (Exception error) { System.out.println(error.getMessage());}
         }
 
-        public List<Hero> getAllHeroes(Connection sql) {
-            return sql.createQuery("SELECT * FROM heroes")
-                    .executeAndFetch(Hero.class);
-        }
+    //UPDATES THE HERO DETAILS TO INCLUDE THE SQUAD ID
+    public static void updateId (String hero, String squad) {
+        try(Connection db = Database.getConnect().open()){
+            String heroUpdate = "UPDATE heroes SET squad = (:squad) WHERE hero = (:hero)";
+            db.createQuery(heroUpdate).addParameter("hero", hero).addParameter("squad", squad).executeUpdate();
+        } catch (Exception error) { System.out.println(error.getMessage());}
+    }
+
 }
