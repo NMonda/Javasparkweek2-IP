@@ -2,15 +2,15 @@ package ke.co.pookie;
 
 import ke.co.pookie.dao.HeroDao;
 import ke.co.pookie.dao.SquadDao;
+import ke.co.pookie.models.Squad;
 import spark.ModelAndView;
-import org.sql2o.Connection;
+import ke.co.pookie.models.Hero;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
 
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.*;
 
 public class Main {
     public static void main(String... args) {

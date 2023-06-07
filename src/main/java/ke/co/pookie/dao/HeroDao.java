@@ -1,6 +1,6 @@
 package ke.co.pookie.dao;
 
-import ke.co.pookie.Hero;
+import ke.co.pookie.models.Hero;
 import ke.co.pookie.config.Database;
 import org.sql2o.Connection;
 
@@ -9,6 +9,7 @@ import java.util.List;
 
 public class HeroDao {
     // LIST ALL HEROES
+    //GETS A LIST OF ALL THE HEROES IN OUR DATABASE
     public static List<Hero> getAllHeroes (){
         List<Hero> allHeroes = null;
 
@@ -23,41 +24,53 @@ public class HeroDao {
 
         return allHeroes;
     }
-    public static void add(Hero newHero){
+
+    //ADDS NEW HERO DETAILS TO THE DATABASE
+    public static void addHero ( Hero newHero) {
         try(Connection db = Database.getConnect().open()){
-            String heroAdd ="INSERT INTO heroes (heroName, power, weakness, squadId) VALUES (:name, :power, :weakness, :squadId)";
+            String heroAdd = "INSERT INTO heroes (hero,age,power,power_score,weakness,weakness_score) VALUES (:hero, :age, :power, :power_score, :weakness, :weakness_score);";
             db.createQuery(heroAdd).bind(newHero).executeUpdate();
-        } catch (Exception error) {
-            System.out.println(error.getMessage());}
+        } catch (Exception error) { System.out.println(error.getMessage());}
     }
 
-        public void deleteHero(String name) {
-            try(Connection db = Database.getConnect().open()){
-                String deletedHero = "DELETE FROM heroes WHERE id = : id";
-                db.createQuery(deletedHero).addParameter("hero", name).executeUpdate();
-            } catch (Exception error) { System.out.println(error.getMessage());}
+    //CHECKS NUMBER OF HEROES IN A PARTICULAR SQUAD
+    public static Integer heroCount (String squad) {
+        Integer heroesInSquad = null;
+        try (Connection db = Database.getConnect().open()) {
+            //CHECKS THE NUMBER OF HEROES IN THE PARAM SQUAD
+            String heroCounter = "SELECT COUNT(*) FROM heroes WHERE squad = (:squad)";
+            heroesInSquad = db.createQuery(heroCounter).addParameter("squad", squad).executeScalar(Integer.class);
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
         }
+        return heroesInSquad;
+    }
 
-        public void updateHero(String hero, String squad) {
-            try(Connection db = Database.getConnect().open()){
-                String heroUpdate = "UPDATE heroes SET heroName = :name, power = :power, weakness = :weakness, squadId = :squadId WHERE id = :id";
-                db.createQuery(heroUpdate).addParameter("hero", hero).addParameter("squad", squad).executeUpdate();
-            } catch (Exception error) { System.out.println(error.getMessage());}
-        }
-        public Hero getHero( int id) {
-            try(Connection db = Database.getConnect().open()){
-                    String heroUpdate= "SELECT * FROM heroes WHERE id = :id";
-                db.createQuery(heroUpdate).addParameter("id").executeUpdate();
-            } catch (Exception error) { System.out.println(error.getMessage());}
-            return null;
-        }
+    //GIVES A LIST OF HEROES WHO ARE EITHER NOT YET IN ANY SQUAD OR NOT IN THE PARAM SQUAD
+    public static List<Hero> membership (String squad) {
+        List<Hero> allHeroes = null;
+        try(Connection db = Database.getConnect().open()){
+            String heroList = "SELECT * FROM heroes WHERE squad IS NULL OR squad <> (:squad);";
+            allHeroes = db.createQuery(heroList).addParameter("squad", squad).executeAndFetch(Hero.class);
+        } catch (Exception error) { System.out.println(error.getMessage());}
+        return allHeroes;
+    }
 
-    //UPDATES THE HERO DETAILS TO INCLUDE THE SQUAD ID
-    public static void updateId (String hero, String squad) {
+    //UPDATES THE HERO DETAILS TO INCLUDE THE SQUAD MEMBERSHIP
+    public static void updateMembership (String hero, String squad) {
         try(Connection db = Database.getConnect().open()){
             String heroUpdate = "UPDATE heroes SET squad = (:squad) WHERE hero = (:hero)";
             db.createQuery(heroUpdate).addParameter("hero", hero).addParameter("squad", squad).executeUpdate();
         } catch (Exception error) { System.out.println(error.getMessage());}
     }
+
+    //DELETES HERO fFROM DATABASE
+    public static void deleteHero(String name){
+        try(Connection db = Database.getConnect().open()){
+            String deletedHero = "DELETE FROM heroes WHERE hero = (:hero);";
+            db.createQuery(deletedHero).addParameter("hero", name).executeUpdate();
+        } catch (Exception error) { System.out.println(error.getMessage());}
+    }
+
 
 }

@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="fixing Main.java and SquadDao.java">
+    <list default="true" id="89094481-3db1-4739-a84e-4e7ef8079a29" name="Changes" comment="resources added , with templates and handlebars">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/models/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/models/Squad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/HeroDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/HeroDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/SquadDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ke/co/pookie/dao/SquadDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/landing-page.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing-page.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,7 @@
       <list>
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -48,6 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -181,7 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685054192697</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixing Main.java,Squad.java and SquadDao.java&#10;removing errors">
+      <created>1685055362220</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685055362220</updated>
+    </task>
+    <task id="LOCAL-00017" summary="resources added , with templates and handlebars">
+      <created>1686120165578</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686120165659</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -199,6 +218,8 @@
     <MESSAGE value="fixing HeroDao.java bugs" />
     <MESSAGE value="fixing Main.java and Squad.java" />
     <MESSAGE value="fixing Main.java and SquadDao.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing Main.java and SquadDao.java" />
+    <MESSAGE value="fixing Main.java,Squad.java and SquadDao.java&#10;removing errors" />
+    <MESSAGE value="resources added , with templates and handlebars" />
+    <option name="LAST_COMMIT_MESSAGE" value="resources added , with templates and handlebars" />
   </component>
 </project>

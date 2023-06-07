@@ -1,6 +1,6 @@
 package ke.co.pookie.dao;
 
-import ke.co.pookie.Squad;
+import ke.co.pookie.models.Squad;
 import ke.co.pookie.config.Database;
 import org.sql2o.Connection;
 
@@ -35,7 +35,7 @@ public class SquadDao {
             String sizeList = "SELECT size from squads WHERE squad = (:squad)"; //gets the size
             squadSize = db.createQuery(sizeList).addParameter("squad", squad).executeAndFetch(Squad.class);
         } catch (Exception error) { System.out.println(error.getMessage());}
-        return squadSize.get(0).getId();
+        return squadSize.get(0).getSize();
     }
 
     //DELETES A SQUAD FROM THE Database
